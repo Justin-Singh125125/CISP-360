@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>linkedLists.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #000000; }
+.cpp1-assembler { color: #00FF00; }
+.cpp1-character { color: #3366FF; }
+.cpp1-comment { background-color: #000000; color: #FF00FF; font-style: italic; }
+.cpp1-float { color: #FF00FF; }
+.cpp1-hexadecimal { color: #FF00FF; }
+.cpp1-identifier { color: #00FF00; }
+.cpp1-illegalchar { background-color: #800000; color: #FF0000; }
+.cpp1-number { background-color: #000000; color: #00FFFF; }
+.cpp1-octal { color: #FF00FF; }
+.cpp1-preprocessor { color: #33CCCC; }
+.cpp1-reservedword { color: #008000; }
+.cpp1-space { background-color: #000000; color: #FFFFFF; }
+.cpp1-string { color: #C3C3C3; }
+.cpp1-symbol { color: #FF0000; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 22pt Consolas;"><span class="cpp1-preprocessor">#include &lt;iostream&gt;
+
+</span><span class="cpp1-reservedword">using</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">namespace</span><span class="cpp1-space"> </span><span class="cpp1-identifier">std</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-comment">//creates a single node when pointed too
+</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ListNode
+</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> 	</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">next</span><span class="cpp1-symbol">;
+};
+</span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">addToListEnd</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">list</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">newNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ListNode</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">temp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ListNode</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-comment">//put whatever d is in the new node
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">newNode</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">newNode</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">next</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">list</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">temp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">newNode</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">		
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-comment">//moves the pointer temp right before the end of the linked list
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">temp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">list</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> 
+		</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">temp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">next</span><span class="cpp1-space"> </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			
+			</span><span class="cpp1-identifier">temp</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">temp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">next</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			
+		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">temp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">next</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">newNode</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		
+	</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-space">	
+	
+	
+	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-identifier">temp</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	
+	
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">displayLinkedList</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">head</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">p</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">head</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-space"> </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">cout</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot; &quot;</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">p</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">next</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">main</span><span class="cpp1-symbol">()
+{
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//create a pointer that is going to be the head
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">myList</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-comment">//a copy pointer
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">ListNode</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">myListCopy</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//call a function to add nodes to the end of the list
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">myList</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">addToListEnd</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-comment">//append 3 to the list
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">myList</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">addToListEnd</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">myList</span><span class="cpp1-symbol">,</span><span class="cpp1-number">3</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">myList</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">addToListEnd</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">myList</span><span class="cpp1-symbol">,</span><span class="cpp1-number">4</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">displayLinkedList</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">myList</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+}
+</span></span>
+</code></pre>
+</body>
+</html>
